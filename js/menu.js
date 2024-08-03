@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
     const pages={
         "index.html": "Inicio",
-        "calculos.html": "calculadora"
+        "calculos.html": "calculadora",
+        "leandro.html": "leandro",
+        "sergio.html": "sergio"
     };
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     const navItems = Object.keys(pages).map(page => {
@@ -13,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }).join("");
 
     const headerContent = `
-        <img src="./img/gato_tigrillo.jpg" alt="log" class="header-img">
+        <img src="../img/gato_tigrillo.jpg" alt="log" class="header-img">
         <nav>
             <ul>
                 ${navItems}
