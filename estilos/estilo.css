@@ -42,3 +42,21 @@ form {
 button {
     font-size: 0.8em;
 }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px; 
+}
+.caja {
+    background-color: lightgray;
+    flex: 1 0 25%; 
+    height: 100px; 
+    border: 2px solid #000; 
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: double;
+    text-decoration: solid;
+    justify-content: center;
+    align-items: center
+    
+}
