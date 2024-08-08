@@ -77,3 +77,6 @@ button {
     margin: 5px;
     font-size: 20px;
 }
+#calFondo {
+    background-color: lightgray;
+}
