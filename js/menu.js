@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }).join("");
 
     const headerContent = `
-        <img src="../img/gato_tigrillo.jpg" alt="log" class="header-img">
+        <img src="./img/gato_tigrillo.jpg" alt="log" class="header-img">
         <nav>
             <ul>
                 ${navItems}
