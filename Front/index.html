@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando123</title>
+    <link rel="stylesheet" href="./estilos/estilo.css">
+</head>
+
+<body>
+    <header id="main-header"></header>
+    <h1>EJEMPLO DE DIVS PARA TEXTO E IMAGEN EN FORMA FLEXIBLE</h1>
+    <input type="text" name="caja" id="caja" placeholder="Agregar texto">
+    <div>
+        <div style="height: 1200px;background-color: orange;margin-top: 50px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
+            <div style="width: 50%;height: 50%;display: flex;background-color: yellow;">
+                <div style="width: 50%;height: 100%;background-color: aqua;">
+                    <h1 style="background-color: bisque;text-align: center;">HOLA</h1>
+                    <form action="">
+                        <div>
+                            <label for="">Nombre:</label>
+                        </div>
+                        <div>
+                            <input type="text" name="nombre" id="nombre" placeholder="Ingresa nombre" required>
+                        </div>
+                        <div>
+                            <label for="">Apellido:</label>
+                        </div>
+                        <div>
+                            <input type="text" name="apellido" id="apellido" placeholder="Ingresa apellido" required>
+                        </div>
+                        <div>
+                            <label for="">Correo Electronico:</label>
+                        </div>
+                        <div>
+                            <input type="text" name="correos" id="correos" placeholder="Ingresa correo" required>
+                        </div>
+                        <div>
+                            <button type="submit" id="formulario">ENVIAR</button>
+                            <button type="reset" id="reset">REINICIAR</button>
+                        </div>
+                    </form>
+                    <div id="resultado"></div>
+                    <div class="separacion">
+                        <input type="text" name="texto" id="get_text" placeholder="Ingresar texto">
+                    </div>
+                    <div class="separacion">
+                        <input type="button" value="Funcion genérica" id="funcion_generica">
+                    </div>
+                    <div id="resultados"></div>
+                    <div class="separacion">
+                        <input type="number" name="numero" id="numero" placeholder="Ingresar numero">
+                    </div>
+                    <div class="separacion">
+                        <input type="button" value="Calcular porcentaje" id="porcentaje">
+                    </div>
+                </div>
+                <div style="width: 50%;height: 100%;background-color: azure;">
+                    <div style="display: flex;width: 100%;height: 100%;flex-direction: column;justify-content: center;align-items: center;">
+                        <h1 style="background-color: brown;">BUENAS</h1>
+                        <h1 style="background-color: brown;">SERGIO</h1>
+                        <h1>LEANDRO</h1>
+                        <img src="./img/gato_tigrillo.jpg" alt="imagen de gatito" id="gato" class="gato">
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative;width: 50%">
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40427.950501373154!2d-54.65869520555415!3d-26.411865060893277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f76e75d69d55cd%3A0x125744858e20bdca!2sEldorado%2C%20Misiones!5e0!3m2!1ses-419!2sar!4v1722546614342!5m2!1ses-419!2sar"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div style="position: absolute;top: 100px;left: 150px;">
+                    <h1 id="misiones">MISIONES, ELDORADO</h1>
+                </div>
+                <div style="position: absolute;" id="misiones_1">
+                    <h1>MI CIUDAD</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <hr>
+    </div>
+    <script src="./js/funciones.js"></script>
+    <script src="./js/menu.js"></script>
+    <script src="./js/sergio.js"></script>
+</body>
+
+</html>
