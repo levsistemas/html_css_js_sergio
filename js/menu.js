@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "index.html": "Inicio",
         "calculos.html": "calculadora",
         "leandro.html": "leandro",
-        "sergio.html": "sergio"
+        "sergio.html": "sergio",
+        "listas.html": "listas"
 
     };
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
