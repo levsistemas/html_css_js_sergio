@@ -57,5 +57,16 @@ button {
     flex-wrap: wrap;
     width: 400px;
 }
+table {
+    width: 100%;
+    border-collapse: collapse; /* Eliminar espacios entre celdas */
+}
+table, th, td {
+    border: 1px solid black; /* Bordes de la tabla */
+}
+th, td {
+    padding: 15px;
+    text-align: left; /* Alinear texto a la izquierda */
+}
 
 /* Caja con
