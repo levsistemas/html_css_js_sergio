@@ -1,43 +1,25 @@
-// Archivo listas.js
-
-// import { url, protocol, port_backend, port} from './direcciones.mjs'
-
-// console.log(url)
-// console.log(protocol)
-// console.log(port_backend)
-// console.log(port)
-
-let url = "//localhost:"
-let protocol = "http:"
-let port_backend = 8082
-let port = window.location.protocol
-if (window.location.hostname.includes('127.0.0.1')) {
-    url = "//localhost:"
-    protocol = "http:"
-    port_backend = 8082
-} else {
-    url = "//" + window.location.hostname + ':'
-    protocol = window.location.protocol
-    port_backend = 8082
-    port = window.location.port
+function getBaseUrl() {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return 'http://localhost:8082';
+    } else {
+        return 'http://192.168.1.10:8082';  // Reemplaza con tu IP de producción si es necesario
+    }
 }
 
+const baseUrl = getBaseUrl();
 
-// Hacer una solicitud GET a la API
-fetch(protocol + url + port_backend + '/api/usuarios')
-    .then(response => {
-        console.log('Response status:', response.status); // Verificar el estado de la respuesta
-        return response.json();
-    })
+fetch(`${baseUrl}/api/usuarios`)
+    .then(response => response.json())
     .then(data => {
-        console.log('Data received:', data); // Verificar los datos recibidos
-        if (data.length === 0) {
-            console.log('No users found.');
-        }
-        // Obtener la referencia de la tabla
         const tablaUsuarios = document.getElementById('tabla-usuarios');
-
-        // Iterar sobre los datos recibidos y crear filas en la tabla
+        tablaUsuarios.innerHTML = `
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+            </tr>
+        `;
         data.forEach(usuario => {
             const fila = document.createElement('tr');
             fila.innerHTML = `
@@ -49,7 +31,7 @@ fetch(protocol + url + port_backend + '/api/usuarios')
             tablaUsuarios.appendChild(fila);
         });
     })
-    .catch(error => console.error('Error fetching usuarios:', error));
-
-
+    .catch(error => {
+        console.error('Error al obtener usuarios:', error);
+    });
 

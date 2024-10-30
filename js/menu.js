@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Manejar el evento click del botón "Ingresar"
         document.getElementById('openModal').addEventListener('click', function () {
             document.getElementById('myModal').style.display = 'block';
+            alert('AMIGO ACORDATE DE HACER FUNCIONAR ESTE MODAL')
         });
 
         // Manejar el evento click para cerrar el modal
