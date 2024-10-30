@@ -1,20 +1,25 @@
-// Archivo listas.js
+function getBaseUrl() {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return 'http://localhost:8082';
+    } else {
+        return 'http://192.168.1.10:8082';  // Reemplaza con tu IP de producción si es necesario
+    }
+}
 
-// Hacer una solicitud GET a la API
-fetch('http://localhost:8082/api/usuarios')
-    .then(response => {
-        console.log('Response status:', response.status); // Verificar el estado de la respuesta
-        return response.json();
-    })
+const baseUrl = getBaseUrl();
+
+fetch(`${baseUrl}/api/usuarios`)
+    .then(response => response.json())
     .then(data => {
-        console.log('Data received:', data); // Verificar los datos recibidos
-        if (data.length === 0) {
-            console.log('No users found.');
-        }
-        // Obtener la referencia de la tabla
         const tablaUsuarios = document.getElementById('tabla-usuarios');
-        
-        // Iterar sobre los datos recibidos y crear filas en la tabla
+        tablaUsuarios.innerHTML = `
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+            </tr>
+        `;
         data.forEach(usuario => {
             const fila = document.createElement('tr');
             fila.innerHTML = `
@@ -26,7 +31,7 @@ fetch('http://localhost:8082/api/usuarios')
             tablaUsuarios.appendChild(fila);
         });
     })
-    .catch(error => console.error('Error fetching usuarios:', error));
-
-
+    .catch(error => {
+        console.error('Error al obtener usuarios:', error);
+    });
 
