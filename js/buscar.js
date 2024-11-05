@@ -1,7 +1,7 @@
 document.getElementById('buscar').addEventListener('click', function() {
     const nombre = document.getElementById('buscar-nombre').value;
 
-    fetch(`http://localhost:8082/api/usuarios/buscar?nombre=${nombre}`)
+    fetch(`http://127.0.0.1:8082/api/usuarios/buscar?nombre=${nombre}`)
     .then(response => response.json())
     .then(data => {
         console.log('Usuarios encontrados:', data); // Mostrar los usuarios encontrados en la consola
@@ -33,3 +33,4 @@ document.getElementById('buscar').addEventListener('click', function() {
     })
     .catch(error => console.error('Error buscando usuarios:', error));
 });
+
