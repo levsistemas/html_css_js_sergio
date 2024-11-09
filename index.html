@@ -1,62 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Probando123</title>
     <link rel="stylesheet" href="./estilos/estilo.css">
-    <link rel="shortcut icon" href="" type="image/x-icon">
+    
 </head>
-
 <body>
     <header id="main-header"></header>
-   
     <h1>EJEMPLO DE DIVS PARA TEXTO E IMAGEN EN FORMA FLEXIBLE</h1>
-    <input type="text" name="caja" id="caja" placeholder="Agregar texto">
+    
     <div>
         <div style="height: 1200px;background-color: orange;margin-top: 50px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
             <div style="width: 50%;height: 50%;display: flex;background-color: yellow;">
                 <div style="width: 50%;height: 100%;background-color: aqua;">
                     <h1 style="background-color: bisque;text-align: center;">HOLA</h1>
-                    <form action="">
+                    <form id="usuario-form">
                         <div>
-                            <label for="">Nombre:</label>
-                        </div>
-                        <div>
+                            <label for="nombre">Nombre:</label>
                             <input type="text" name="nombre" id="nombre" placeholder="Ingresa nombre" required>
                         </div>
                         <div>
-                            <label for="">Apellido:</label>
-                        </div>
-                        <div>
+                            <label for="apellido">Apellido:</label>
                             <input type="text" name="apellido" id="apellido" placeholder="Ingresa apellido" required>
                         </div>
                         <div>
-                            <label for="">Correo Electronico:</label>
+                            <label for="correos">Correo Electronico:</label>
+                            <input type="text" name="correos" id="correos" placeholder="Ingresa correo" required>
                         </div>
                         <div>
-                            <input type="text" name="correos" id="correos" placeholder="Ingresa correo" required>
+                            <label for="contrasena">Contraseña:</label>
+                            <input type="text" name="contrasena" id="contrasena" placeholder="Ingresar contraseña" required>
                         </div>
                         <div>
                             <button type="submit" id="formulario">ENVIAR</button>
                             <button type="reset" id="reset">REINICIAR</button>
                         </div>
                     </form>
-                    <div id="resultado"></div>
-                    <div class="separacion">
-                        <input type="text" name="texto" id="get_text" placeholder="Ingresar texto">
-                    </div>
-                    <div class="separacion">
-                        <input type="button" value="Funcion genérica" id="funcion_generica">
-                    </div>
-                    <div id="resultados"></div>
-                    <div class="separacion">
-                        <input type="number" name="numero" id="numero" placeholder="Ingresar numero">
-                    </div>
-                    <div class="separacion">
-                        <input type="button" value="Calcular porcentaje" id="porcentaje">
-                    </div>
                 </div>
                 <div style="width: 50%;height: 100%;background-color: azure;">
                     <div style="display: flex;width: 100%;height: 100%;flex-direction: column;justify-content: center;align-items: center;">
@@ -85,10 +66,12 @@
     <div>
         <hr>
     </div>
-    
-    <script type="module" src="./js/menu.js"></script>
-    <script type="module" src="./js/formulario.js"></script>
-    <script type="module" src="./js/direcciones.js"></script>
-</body>
 
+    <!-- Coloca los scripts aquí -->
+    <script src="./js/menu.js"></script>
+    <script type="module" src="./js/direcciones.js"></script>
+    <script type="module" src="./js/formulario.js"></script> 
+    <script type="module" src="./js/listas.js"></script>
+
+</body>
 </html>

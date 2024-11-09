@@ -11,17 +11,29 @@
     <header id="main-header"></header>
     <h1>Buscar Usuario</h1>
     <div>
-        <label for="buscar-nombre">Buscar por Nombre:</label>
+        <label for="buscar-nombre">Nombre:</label>
         <input type="text" id="buscar-nombre" placeholder="Ingresa nombre">
+        
+        <label for="buscar-apellido">Apellido:</label>
+        <input type="text" id="buscar-apellido" placeholder="Ingresa apellido">
+        
+        <label for="buscar-email">Email:</label>
+        <input type="text" id="buscar-email" placeholder="Ingresa email">
+        
         <button type="button" id="buscar">BUSCAR</button>
     </div>
     <table id="tabla-usuarios">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas se añadirán dinámicamente aquí -->
+        </tbody>
     </table>
     <script src="./js/buscar.js"></script>
     <script src="./js/menu.js"></script>

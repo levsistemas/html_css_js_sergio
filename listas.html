@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listas</title>
+    <title>Listas de Usuarios</title>
     <link rel="stylesheet" href="./estilos/estilo.css">
-    <style>
-        
-    </style>
 </head>
 <body>
     <header id="main-header"></header>
-    <h1>Lista de Usuarios</h1>
+    <h1>Listas de Usuarios</h1>
     <table id="tabla-usuarios">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Email</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas se añadirán dinámicamente aquí -->
+        </tbody>
     </table>
-    <!-- Incluir scripts externos para funcionalidades adicionales -->
-    <script src="./js/menu.js"></script>
+    <script type="module" src="./js/menu.js"></script>
+    <script type="module" src="./js/direcciones.js"></script>
     <script type="module" src="./js/listas.js"></script>
 </body>
 </html>

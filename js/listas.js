@@ -1,36 +1,36 @@
-function getBaseUrl() {
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        return 'http://localhost:8082';
-    } else {
-        return 'http://192.168.1.6:8082';  // IP de tu backend
+import { url, protocolo, port_backend, port } from './direcciones.js';
+
+document.addEventListener("DOMContentLoaded", function () {
+    const tablaUsuarios = document.getElementById('tabla-usuarios');
+    if (!tablaUsuarios) {
+        console.error('Elemento tabla-usuarios no encontrado.');
+        return;
     }
-}
 
-const baseUrl = getBaseUrl();
-
-fetch(`${baseUrl}/api/usuarios`)
-    .then(response => response.json())
-    .then(data => {
-        const tablaUsuarios = document.getElementById('tabla-usuarios');
-        tablaUsuarios.innerHTML = `
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-            </tr>
-        `;
-        data.forEach(usuario => {
-            const fila = document.createElement('tr');
-            fila.innerHTML = `
-                <td>${usuario.id}</td>
-                <td>${usuario.nombre}</td>
-                <td>${usuario.apellido}</td>
-                <td>${usuario.email}</td>
-            `; // Cerrar la plantilla aquí
-            tablaUsuarios.appendChild(fila);
+    fetch(`${protocolo}${url}${port_backend}/api/usuarios`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al recuperar los usuarios: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const tbody = tablaUsuarios.getElementsByTagName('tbody')[0];
+            tbody.innerHTML = ''; // Limpiar la tabla antes de agregar las filas
+            data.forEach(usuario => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${usuario.id}</td>
+                    <td>${usuario.nombre}</td>
+                    <td>${usuario.apellido}</td>
+                    <td>${usuario.email}</td>
+                `;
+                tbody.appendChild(fila);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Hubo un error al recuperar los usuarios.');
         });
-    })
-    .catch(error => {
-        console.error('Error al obtener usuarios:', error);
-    });
+});
+
