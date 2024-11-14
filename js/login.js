@@ -1,25 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log('DOM CARGADO... SALIENDO')
-});
+import { backend } from "./direcciones.js";
+
+// console.log('inicio login.js')
 
 const modalButton = document.getElementById('openModal');
 if (typeof modalButton !== 'undefined') {
-    modalButton.addEventListener('click', function () {
+    modalButton.addEventListener('click', () => {
         document.getElementById('myModal').style.display = 'block';
     });
 } else {
     console.error('Elemento openModal no encontrado');
-    // return;
 }
 
 const closeButton = document.getElementsByClassName('close')[0];
 if (typeof closeButton !== 'undefined') {
-    closeButton.addEventListener('click', function () {
+    closeButton.addEventListener('click', () => {
         document.getElementById('myModal').style.display = 'none';
     });
 } else {
     console.error('Elemento close no encontrado');
-    // return;
 }
 
 window.addEventListener('click', function (event) {
@@ -33,16 +31,16 @@ if (typeof loginForm !== 'undefined') {
     loginForm.addEventListener('submit', function (event) {
         event.preventDefault(); // Evitar el envío del formulario
 
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const EMAIL = document.getElementById("email").value;
+        const PASSWORD = document.getElementById("password").value;
 
         // Realizar la llamada al backend para validar el usuario
-        fetch('http://localhost:8082/api/usuarios/login', {
+        fetch(`${backend}/api/usuarios/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email: email, contrasena: password })
+            body: JSON.stringify({ email: EMAIL, contrasena: PASSWORD })
         })
         .then(response => {
             if (!response.ok) {
@@ -75,3 +73,5 @@ if (typeof loginForm !== 'undefined') {
 } else {
     console.error('Elemento loginForm no encontrado');
 }
+
+// console.log('fin login.js')

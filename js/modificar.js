@@ -1,12 +1,17 @@
+import { backend } from "./direcciones.js";
+
 document.getElementById('modificar').addEventListener('click', function() {
-    const id = document.getElementById('modificar-id').value;
-    const nombre = document.getElementById('modificar-nombre').value;
-    const apellido = document.getElementById('modificar-apellido').value;
-    const email = document.getElementById('modificar-email').value;
+    console.log('Preparandonos para modificar el registro...')
+    const ID = document.getElementById('id').value;
+    const NAME = document.getElementById('name').value;
+    const SURNAME = document.getElementById('surname').value;
+    const EMAIL = document.getElementById('email').value;
 
-    const usuario = { id, nombre, apellido, email };
+    console.log('Validando las constantes cargadas: ' + ID + ' ' + NAME + ' ' + SURNAME + ' ' + EMAIL)
 
-    fetch(`http://localhost:8082/api/usuarios/${id}`, {
+    const usuario = { ID, NAME, SURNAME, EMAIL };
+
+    fetch(`${backend}/api/usuarios/${ID}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(usuario)

@@ -1,7 +1,16 @@
-document.getElementById('eliminar').addEventListener('click', function() {
-    const id = document.getElementById('eliminar-id').value;
+import { protocolo, url, port_backend } from "./direcciones.js";
 
-    fetch(`http://localhost:8082/api/usuarios/${id}`, {
+const BTN_ELIMINAR = document.getElementById('eliminar')
+
+BTN_ELIMINAR.addEventListener('click', function() {
+
+    const ID = parseInt(document.getElementById('id').value);
+
+    console.log('Preparandonos para eliminar el registro del usuario: ' + ID + ' (A MODO PRUEBA)')
+
+    console.log(ID)
+
+    fetch(`${protocolo}${url}${port_backend}/api/usuarios/${ID}`, {
         method: 'DELETE'
     })
     .then(() => {

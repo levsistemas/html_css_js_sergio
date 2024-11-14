@@ -43,7 +43,7 @@
 
 /* Estilos para los formularios */
 form {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 /* Estilos para los botones */
@@ -73,7 +73,7 @@ th, td {
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
-    padding: 20px; /* Puedes ajustar el relleno según tus preferencias */
+    padding: 20px; /*Puedes ajustar el relleno según tus preferencias*/
     background-color: #333; /* Puedes ajustar el color de fondo según tus preferencias */
 }
 
@@ -86,6 +86,10 @@ th, td {
 .header img {
     max-width: 25%;
     height: auto;
+}
+
+nav {
+    height: 100%;
 }
 
 /* Estilos para la barra de navegación */
@@ -144,7 +148,3 @@ nav ul li a:hover {
     text-decoration: none;
     cursor: pointer;
 }
-
-
-
-/* Caja con

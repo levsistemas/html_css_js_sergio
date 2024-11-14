@@ -1,25 +1,29 @@
 import { url, protocolo, port_backend, port } from './direcciones.js';
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("buscar").addEventListener("click", function () {
-        const nombre = document.getElementById("buscar-nombre").value;
-        const apellido = document.getElementById("buscar-apellido").value;
-        const email = document.getElementById("buscar-email").value;
+const BTN_BUSCAR = document.getElementById('buscar')
+const BTN_LIMPIAR = document.getElementById('limpiar')
 
-        console.log('Nombre:', nombre, 'Apellido:', apellido, 'Email:', email); // Verificar valores
-        fetchUsuarios(nombre, apellido, email);
-    });
+BTN_BUSCAR.addEventListener('click', () => {
+    console.log('clickeando en boton buscar')
+    if(document.getElementById('name').value !=='' || document.getElementById('surname').value !=='' || document.getElementById('email').value !==''){
+        const NAME = document.getElementById("name").value;
+        const SURNAME = document.getElementById("surname").value;
+        const EMAIL = document.getElementById("email").value;
+        console.log('Nombre:', NAME, 'Apellido:', SURNAME, 'Email:', EMAIL); // Verificar valores
+        fetchUsuarios(NAME, SURNAME, EMAIL);
+    }
+})
 
-    document.getElementById("limpiar").addEventListener("click", function () {
-        limpiarCampos();
-    });
+BTN_LIMPIAR.addEventListener("click", function () {
+    console.log('LLAMANDO A FN LIMPIAR CAMPOS')
+    limpiarCampos();
 });
 
-function fetchUsuarios(nombre = '', apellido = '', email = '') {
+function fetchUsuarios(NAME = '', SURNAME = '', EMAIL = '') {
     const params = new URLSearchParams();
-    if (nombre) params.append('nombre', nombre);
-    if (apellido) params.append('apellido', apellido);
-    if (email) params.append('email', email);
+    if (NAME) params.append('nombre', NAME);
+    if (SURNAME) params.append('apellido', SURNAME);
+    if (EMAIL) params.append('email', EMAIL);
 
     if (!params.toString()) {
         alert("Por favor ingresa al menos un criterio de búsqueda");
@@ -57,9 +61,9 @@ function fetchUsuarios(nombre = '', apellido = '', email = '') {
 }
 
 function limpiarCampos() {
-    document.getElementById("buscar-nombre").value = '';
-    document.getElementById("buscar-apellido").value = '';
-    document.getElementById("buscar-email").value = '';
+    document.getElementById("name").value = '';
+    document.getElementById("surname").value = '';
+    document.getElementById("email").value = '';
     document.getElementById('tabla-usuarios').getElementsByTagName('tbody')[0].innerHTML = ''; // Limpiar la tabla
 }
 
