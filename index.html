@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Probando123</title>
     <link rel="stylesheet" href="./estilos/estilo.css">
-    
 </head>
 <body>
     <header id="main-header"></header>
     <h1>EJEMPLO DE DIVS PARA TEXTO E IMAGEN EN FORMA FLEXIBLE</h1>
     
     <div>
-        <div style="height: 1200px;background-color: orange;margin-top: 50px;display: flex;justify-content: center;align-items: center;flex-direction: column;">
-            <div style="width: 50%;height: 50%;display: flex;background-color: yellow;">
-                <div style="width: 50%;height: 100%;background-color: aqua;">
-                    <h1 style="background-color: bisque;text-align: center;">HOLA</h1>
+        <div style="height: 1200px; background-color: orange; margin-top: 50px; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <div style="width: 50%; height: 50%; display: flex; background-color: yellow;">
+                <div style="width: 50%; height: 100%; background-color: aqua;">
+                    <h1 style="background-color: bisque; text-align: center;">HOLA</h1>
                     <form id="usuario-form">
                         <div>
                             <label for="nombre">Nombre:</label>
@@ -26,12 +25,14 @@
                             <input type="text" name="apellido" id="apellido" placeholder="Ingresa apellido" required>
                         </div>
                         <div>
-                            <label for="correos">Correo Electronico:</label>
+                            <label for="correos">Correo Electrónico:</label>
                             <input type="text" name="correos" id="correos" placeholder="Ingresa correo" required>
                         </div>
                         <div>
                             <label for="contrasena">Contraseña:</label>
-                            <input type="text" name="contrasena" id="contrasena" placeholder="Ingresar contraseña" required>
+                            <input type="password" name="contrasena" id="contrasena" placeholder="Ingresa contraseña" required>
+                            <!-- <button id="shows">Mostrar</button> -->
+                            <input type="button" id="show" value="Mostrar" >
                         </div>
                         <div>
                             <button type="submit" id="formulario">ENVIAR</button>
@@ -39,8 +40,8 @@
                         </div>
                     </form>
                 </div>
-                <div style="width: 50%;height: 100%;background-color: azure;">
-                    <div style="display: flex;width: 100%;height: 100%;flex-direction: column;justify-content: center;align-items: center;">
+                <div style="width: 50%; height: 100%; background-color: azure;">
+                    <div style="display: flex; width: 100%; height: 100%; flex-direction: column; justify-content: center; align-items: center;">
                         <h1 style="background-color: brown;">BUENAS</h1>
                         <h1 style="background-color: brown;">SERGIO</h1>
                         <h1>LEANDRO</h1>
@@ -48,13 +49,12 @@
                     </div>
                 </div>
             </div>
-            <div style="position: relative;width: 50%">
+            <div style="position: relative; width: 50%">
                 <div>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40427.950501373154!2d-54.65869520555415!3d-26.411865060893277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f76e75d69d55cd%3A0x125744858e20bdca!2sEldorado%2C%20Misiones!5e0!3m2!1ses-419!2sar!4v1722546614342!5m2!1ses-419!2sar"
-                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div style="position: absolute;top: 100px;left: 150px;">
+                <div style="position: absolute; top: 100px; left: 150px;">
                     <h1 id="misiones">MISIONES, ELDORADO</h1>
                 </div>
                 <div style="position: absolute;" id="misiones_1">
@@ -63,15 +63,39 @@
             </div>
         </div>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ingresar</h2>
+            <form id="loginForm">
+                <label for="email">Correo:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    <div id="user-info" style="display:none;"></div>
+    <button id="btn-salir" style="display:none;">Salir</button>
+
     <div>
         <hr>
     </div>
 
     <!-- Coloca los scripts aquí -->
-    <script src="./js/menu.js"></script>
+    <script src="./js/lpm.js"></script>
+    <!-- <script type="module" src="./js/header.js"></script> -->
+     <script src="./js/header.js"></script>
+    <!-- <script type="module" src="./js/login.js"></script> -->
+     <script src="./js/login.js"></script>
     <script type="module" src="./js/direcciones.js"></script>
-    <script type="module" src="./js/formulario.js"></script> 
-    <script type="module" src="./js/listas.js"></script>
-
+    <!-- <script type="module" src="./js/formulario.js"></script> -->
+     <script src="./js/formulario.js"></script>
 </body>
 </html>
+
+
+
+

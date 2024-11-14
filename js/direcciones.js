@@ -1,3 +1,6 @@
+console.log('HOLA MUNDO DIRECCIONES')
+const LEAN = 'LEANDRO'
+
 let url = "//localhost:";
 let protocolo = "http:";
 let port_backend = 8082;

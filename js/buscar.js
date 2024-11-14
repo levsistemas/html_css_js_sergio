@@ -6,7 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const apellido = document.getElementById("buscar-apellido").value;
         const email = document.getElementById("buscar-email").value;
 
+        console.log('Nombre:', nombre, 'Apellido:', apellido, 'Email:', email); // Verificar valores
         fetchUsuarios(nombre, apellido, email);
+    });
+
+    document.getElementById("limpiar").addEventListener("click", function () {
+        limpiarCampos();
     });
 });
 
@@ -16,7 +21,13 @@ function fetchUsuarios(nombre = '', apellido = '', email = '') {
     if (apellido) params.append('apellido', apellido);
     if (email) params.append('email', email);
 
+    if (!params.toString()) {
+        alert("Por favor ingresa al menos un criterio de búsqueda");
+        return;
+    }
+
     const urlBusqueda = `${protocolo}${url}${port_backend}/api/usuarios/search?${params.toString()}`;
+    console.log('URL de búsqueda:', urlBusqueda); // Verificar URL
 
     fetch(urlBusqueda)
         .then(response => {
@@ -44,5 +55,19 @@ function fetchUsuarios(nombre = '', apellido = '', email = '') {
             alert('Hubo un error al recuperar los usuarios.');
         });
 }
+
+function limpiarCampos() {
+    document.getElementById("buscar-nombre").value = '';
+    document.getElementById("buscar-apellido").value = '';
+    document.getElementById("buscar-email").value = '';
+    document.getElementById('tabla-usuarios').getElementsByTagName('tbody')[0].innerHTML = ''; // Limpiar la tabla
+}
+
+
+
+
+
+
+
 
 

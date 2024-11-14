@@ -3,7 +3,7 @@ import { url, protocolo, port_backend, port } from './direcciones.js';
 document.addEventListener("DOMContentLoaded", function () {
     const tablaUsuarios = document.getElementById('tabla-usuarios');
     if (!tablaUsuarios) {
-        console.error('Elemento tabla-usuarios no encontrado.');
+        //console.error('Elemento tabla-usuarios no encontrado.');
         return;
     }
 

@@ -1,62 +1,79 @@
-import { url, protocolo, port_backend, port } from './direcciones.js';
+console.log('HOLA MUNDO FORMULARIO')
+const SERGIO = 'Sergio'
 
-document.addEventListener("DOMContentLoaded", function () {
-    const formulario = document.getElementById("usuario-form"); // Asegúrate de que el ID del formulario coincide
-    if (formulario) {
-        formulario.addEventListener("submit", function (event) {
+// document.addEventListener('DOMContentLoaded', function() {
+    // const form = document.getElementById('usuario-form');
+    const FORMULARIO = document.getElementById('formulario')
+    // if (FORMULARIO) {
+        FORMULARIO.addEventListener('click', function (event) {
             event.preventDefault();
 
-            const nombre = document.getElementById("nombre").value;
-            const apellido = document.getElementById("apellido").value;
-            const email = document.getElementById("correos").value; // Asegúrate de que el ID es correcto
-            const contrasena = document.getElementById("contrasena").value;
+            const NOMBRE = document.getElementById("nombre").value;
+            const APELLIDO = document.getElementById("apellido").value;
+            const EMAIL = document.getElementById("correos").value;
+            const CONTRASENA = document.getElementById("contrasena").value;
 
-            const usuario = {
-                nombre: nombre,
-                apellido: apellido,
-                email: email
-            };
+            // alert('nombre:' + NOMBRE + '\n' + 'apellido:' + APELLIDO + '\n' + 'email:' + EMAIL)
 
-            fetch(`${protocolo}${url}${port_backend}/api/usuarios`, {
+            fetch('http://localhost:8082/api/usuarios', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(usuario)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (!data.id) {
-                    throw new Error('Error en la creación del usuario');
-                }
-
-                const nuevaContrasena = {
-                    contrasena: contrasena,
-                    usuario: { id: data.id }
-                };
-
-                return fetch(`${protocolo}${url}${port_backend}/api/usuarios/contrasena`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(nuevaContrasena)
-                });
+                body: JSON.stringify({ 
+                    nombre: NOMBRE,
+                    apellido: APELLIDO,
+                    email: EMAIL,
+                    contrasena: CONTRASENA,
+                })
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Error en la creación de la contraseña');
+                    throw new Error('Error al agregar el usuario');
                 }
                 return response.json();
             })
             .then(data => {
-                alert('Usuario y contraseña creados exitosamente!');
-                // Opcionalmente, puedes agregar código para actualizar la lista de usuarios en la página aquí
+                console.log(data)
+                console.log('Usuario agregado correctamente');
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Hubo un error al crear el usuario o la contraseña.');
+                // alert(error.message);
             });
         });
+    // } else {
+        // console.error('Elemento usuario-form no encontrado');
+    // }
+// });
+
+
+const BTN_PASS = document.getElementById('shows')
+if(BTN_PASS){
+    BTN_PASS.addEventListener('click', () => {
+        if(document.getElementById('contrasena').getAttribute('type') == 'password'){
+            document.getElementById('contrasena').setAttribute('type', 'text')
+            BTN_PASS.textContent = 'Ocultar'
+        } else {
+            document.getElementById('contrasena').setAttribute('type', 'password')
+            BTN_PASS.textContent = 'Mostrar'
+        }
+    })
+}
+
+const BTN_PASS_1 = document.getElementById('show')
+BTN_PASS_1.addEventListener('click', () => {
+    if(document.getElementById('contrasena').getAttribute('type') == 'password'){
+        document.getElementById('contrasena').setAttribute('type', 'text')
+        BTN_PASS_1.value = 'Ocultar'
+    } else {
+        document.getElementById('contrasena').setAttribute('type', 'password')
+        BTN_PASS_1.value = 'Mostrar'
     }
-});
+})
+
+
+
+
+
+
