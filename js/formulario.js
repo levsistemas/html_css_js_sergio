@@ -1,33 +1,79 @@
-/// Archivo form.js
+console.log('HOLA MUNDO FORMULARIO')
+const SERGIO = 'Sergio'
 
-document.getElementById('formulario').addEventListener('click', function(event) {
-    event.preventDefault();
+// document.addEventListener('DOMContentLoaded', function() {
+    // const form = document.getElementById('usuario-form');
+    const FORMULARIO = document.getElementById('formulario')
+    // if (FORMULARIO) {
+        FORMULARIO.addEventListener('click', function (event) {
+            event.preventDefault();
 
-    // Obtener los valores del formulario
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-    const correos = document.getElementById('correos').value;
+            const NOMBRE = document.getElementById("nombre").value;
+            const APELLIDO = document.getElementById("apellido").value;
+            const EMAIL = document.getElementById("correos").value;
+            const CONTRASENA = document.getElementById("contrasena").value;
 
-    // Crear el objeto usuario
-    const usuario = {
-        nombre: nombre,
-        apellido: apellido,
-        email: correos
-    };
+            // alert('nombre:' + NOMBRE + '\n' + 'apellido:' + APELLIDO + '\n' + 'email:' + EMAIL)
 
-    // Enviar una solicitud POST a la API
-    fetch('http://localhost:8082/api/usuarios', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(usuario)
+            fetch('http://localhost:8082/api/usuarios', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    nombre: NOMBRE,
+                    apellido: APELLIDO,
+                    email: EMAIL,
+                    contrasena: CONTRASENA,
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error al agregar el usuario');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data)
+                console.log('Usuario agregado correctamente');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // alert(error.message);
+            });
+        });
+    // } else {
+        // console.error('Elemento usuario-form no encontrado');
+    // }
+// });
+
+
+const BTN_PASS = document.getElementById('shows')
+if(BTN_PASS){
+    BTN_PASS.addEventListener('click', () => {
+        if(document.getElementById('contrasena').getAttribute('type') == 'password'){
+            document.getElementById('contrasena').setAttribute('type', 'text')
+            BTN_PASS.textContent = 'Ocultar'
+        } else {
+            document.getElementById('contrasena').setAttribute('type', 'password')
+            BTN_PASS.textContent = 'Mostrar'
+        }
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Usuario creado:', data);
-    })
-    .catch(error => {
-        console.error('Error creando usuario:', error);
-    });
-});
+}
+
+const BTN_PASS_1 = document.getElementById('show')
+BTN_PASS_1.addEventListener('click', () => {
+    if(document.getElementById('contrasena').getAttribute('type') == 'password'){
+        document.getElementById('contrasena').setAttribute('type', 'text')
+        BTN_PASS_1.value = 'Ocultar'
+    } else {
+        document.getElementById('contrasena').setAttribute('type', 'password')
+        BTN_PASS_1.value = 'Mostrar'
+    }
+})
+
+
+
+
+
+
